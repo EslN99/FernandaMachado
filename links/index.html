@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Dra. Fernanda Machado · Links</title>
+<meta name="description" content="Agende sua consulta, conheça o consultório e tire suas dúvidas. Atendimento presencial em Ribeirão Preto/SP e on-line para todo o Brasil.">
+<meta name="theme-color" content="#f0ece8">
+<link rel="icon" type="image/png" href="../assets/logo/simbolo-grafite.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@400;500;600&family=Playfair+Display:ital@1&display=swap">
+<style>
+/* Agregador de links · mesmos tokens do site, coluna única, mobile first */
+:root {
+  --taupe-050:#f0ece8; --taupe-100:#e1dad1; --taupe-200:#d2c8ba; --taupe-300:#c3b6a3; --taupe-400:#b4a48c;
+  --taupe-500:#908370; --taupe-600:#6c6254; --taupe-700:#474137; --taupe-800:#23201b; --branco:#fff;
+  --ink: var(--taupe-800); --ink-muted: var(--taupe-600); --accent: var(--taupe-500); --line: var(--taupe-200);
+  --font-display: "Italiana", Georgia, serif; --font-accent: "Playfair Display", Georgia, serif; --font-sans: "Montserrat", Arial, sans-serif;
+  --ease: cubic-bezier(.22,.7,.2,1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; min-height: 100vh; min-height: 100dvh; font-family: var(--font-sans); color: var(--ink); -webkit-font-smoothing: antialiased;
+  background: url(../assets/bg/papel.jpg) left top / 640px auto, var(--taupe-050); background-blend-mode: multiply; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--taupe-600); outline-offset: 3px; }
+
+/* Foto de ambiente no fundo, sumindo em degradê */
+.ambient { position: fixed; inset: 0 0 auto 0; height: 62vh; z-index: 0; pointer-events: none; overflow: hidden; }
+.ambient img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; opacity: .32; filter: saturate(.6);
+  -webkit-mask-image: linear-gradient(to bottom, #000 20%, transparent 95%); mask-image: linear-gradient(to bottom, #000 20%, transparent 95%);
+  transform: scale(1.08); animation: drift 24s var(--ease) infinite alternate; }
+@keyframes drift { to { transform: scale(1.16) translate(-2%, 1%); } }
+
+.wrap { position: relative; z-index: 1; width: 100%; max-width: 480px; margin: 0 auto;
+  padding: calc(40px + env(safe-area-inset-top, 0px)) max(20px, env(safe-area-inset-right, 0px)) calc(32px + env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px));
+  display: flex; flex-direction: column; gap: 28px; }
+
+/* Perfil */
+.profile { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.photo { position: relative; width: 132px; padding: 7px; margin-bottom: 22px; }
+.photo::before, .photo::after, .photo i { content: ""; position: absolute; background: var(--ink); }
+.photo::before { left: 0; bottom: 0; width: 1.5px; height: 100%; }
+.photo::after { right: 0; bottom: 0; width: 1.5px; height: 100%; }
+.photo i { left: 0; bottom: 0; height: 1.5px; width: 100%; }
+.photo .img { aspect-ratio: 4/5; overflow: hidden; background: var(--taupe-100); }
+.photo .img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; transition: transform 1s var(--ease); }
+.photo:hover .img img { transform: scale(1.07); }
+.logo { width: 230px; margin-bottom: 14px; }
+.meta { font-size: 11px; line-height: 16px; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-muted); font-weight: 500; }
+.bio { font-family: var(--font-accent); font-style: italic; font-size: 17px; line-height: 26px; margin: 16px 0 0; max-width: 34ch; }
+
+/* Ação principal */
+.primary { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 64px; padding: 0 22px; background: var(--ink); color: var(--branco);
+  font-size: 13px; letter-spacing: .16em; text-transform: uppercase; font-weight: 500; box-shadow: 0 18px 36px -20px rgba(35,32,27,.6);
+  transition: transform .4s var(--ease), background-color .25s, box-shadow .4s var(--ease); position: relative; overflow: hidden; }
+.primary::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.14) 50%, transparent 70%); transform: translateX(-100%); animation: shine 4.5s var(--ease) 1.6s infinite; }
+@keyframes shine { 0%, 60% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+.primary:hover { transform: scale(1.03); background: var(--taupe-700); box-shadow: 0 24px 44px -20px rgba(35,32,27,.7); }
+.primary:active { transform: scale(.98); }
+.primary .l { display: flex; align-items: center; gap: 12px; }
+.primary svg { width: 22px; height: 22px; flex: none; }
+.primary .arrow { width: 18px; height: 18px; transition: transform .4s var(--ease); }
+.primary:hover .arrow { transform: translateX(4px); }
+.note { text-align: center; font-size: 12px; color: var(--ink-muted); margin: -16px 0 0; }
+
+/* Lista de links */
+.links { display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.link { display: grid; grid-template-columns: 44px 1fr 18px; align-items: center; gap: 14px; padding: 14px 18px 14px 14px; min-height: 72px;
+  background: rgba(255,255,255,.72); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid var(--line);
+  transition: transform .45s var(--ease), border-color .3s, background-color .3s, box-shadow .45s var(--ease); }
+.link:hover { transform: scale(1.025); border-color: var(--taupe-400); background: var(--branco); box-shadow: 0 20px 40px -26px rgba(35,32,27,.5); }
+.link:active { transform: scale(.99); }
+.ico { width: 44px; height: 44px; border: 1px solid var(--ink); display: grid; place-items: center; transition: background-color .3s, color .3s, transform .45s var(--ease); }
+.ico svg { width: 22px; height: 22px; }
+.link:hover .ico { background: var(--ink); color: var(--branco); transform: rotate(-4deg); }
+.t { font-family: var(--font-display); font-size: 21px; line-height: 25px; display: block; }
+.s { font-size: 12.5px; line-height: 18px; color: var(--ink-muted); display: block; margin-top: 2px; }
+.go { width: 18px; height: 18px; color: var(--accent); transition: transform .45s var(--ease); }
+.link:hover .go { transform: translate(3px, -3px); }
+
+/* Destaque editorial */
+.feature { position: relative; display: block; overflow: hidden; background: var(--taupe-800); color: var(--taupe-050); min-height: 200px; padding: 24px; transition: transform .5s var(--ease); }
+.feature:hover { transform: scale(1.02); }
+.feature img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .32; filter: grayscale(1);
+  -webkit-mask-image: linear-gradient(to left, #000 30%, transparent 95%); mask-image: linear-gradient(to left, #000 30%, transparent 95%); transition: transform 1.2s var(--ease), opacity .5s; }
+.feature:hover img { transform: scale(1.08); opacity: .42; }
+.feature > span { position: relative; display: block; }
+.feature .k { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--taupe-300); font-weight: 500; }
+.feature .h { font-family: var(--font-display); font-size: 32px; line-height: 36px; margin: 12px 0 10px; max-width: 12ch; }
+.feature .p { font-size: 13.5px; line-height: 21px; color: var(--taupe-200); max-width: 30ch; }
+.feature .cta { margin-top: 18px; display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+
+/* Rodapé */
+.foot { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; padding-top: 6px; }
+.foot img { width: 30px; opacity: .8; }
+.foot p { margin: 0; font-size: 11px; line-height: 17px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); }
+
+/* Entrada em sequência */
+.js .in { opacity: 0; transform: translateY(18px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: var(--d, 0s); }
+.js.ready .in { opacity: 1; transform: none; }
+.js .photo::before, .js .photo::after { transform: scaleY(0); transform-origin: bottom; transition: transform 1.1s var(--ease) .5s; }
+.js .photo i { transform: scaleX(0); transform-origin: left; transition: transform .9s var(--ease) .3s; }
+.js.ready .photo::before, .js.ready .photo::after { transform: scaleY(1); }
+.js.ready .photo i { transform: scaleX(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
+  .js .in { opacity: 1; transform: none; }
+}
+@media (min-width: 768px) { .wrap { padding-top: 64px; } .photo { width: 150px; } }
+</style>
+</head>
+<body>
+<div class="ambient" aria-hidden="true"><img src="../assets/bg/caminhando-luz.jpg" alt=""></div>
+
+<main class="wrap">
+  <header class="profile">
+    <div class="photo in"><i></i><div class="img"><img src="../assets/img/fernanda-close-claro.jpg" alt="Dra. Fernanda Machado" width="933" height="1400"></div></div>
+    <img class="logo in" style="--d:.15s" src="../assets/logo/logo-secundaria-grafite.png" alt="Fernanda Machado Psiquiatria" width="230" height="50">
+    <p class="meta in" style="--d:.22s">Médica · CRM-SP 205.163</p>
+    <p class="bio in" style="--d:.3s">Psiquiatria e saúde mental com rigor científico e atenção à história de cada pessoa.</p>
+  </header>
+
+  <a class="primary in" style="--d:.4s" href="https://wa.me/5516997722066?text=Ol%C3%A1%2C%20vim%20pelo%20Instagram%20e%20gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Fernanda%20Machado." target="_blank" rel="noopener">
+    <span class="l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H10l-6 4z"/></svg>Agendar consulta</span>
+    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+  <p class="note in" style="--d:.45s">Apenas consultas particulares · secretário Rafael</p>
+
+  <ul class="links">
+    <li class="in" style="--d:.5s"><a class="link" href="../#consultas">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18z"/><path d="M12 7.5V12l3 2"/></svg></span>
+      <span><span class="t">Como funcionam as consultas</span><span class="s">1h15 em média · plano individualizado</span></span>
+      <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
+    <li class="in" style="--d:.56s"><a class="link" href="https://wa.me/5516997722066?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20consulta%20on-line." target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v11H3z"/><path d="M8 20h8"/><path d="M12 16v4"/></svg></span>
+      <span><span class="t">Consulta on-line</span><span class="s">Telemedicina para todo o Brasil</span></span>
+      <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
+    <li class="in" style="--d:.62s"><a class="link" href="https://www.google.com/maps/search/?api=1&query=Rua+Jos%C3%A9+Leal,+389,+Ribeir%C3%A3o+Preto+-+SP" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><path d="M12 11.5a2.5 2.5 0 1 0 0-5a2.5 2.5 0 1 0 0 5z"/></svg></span>
+      <span><span class="t">Consultório em Ribeirão Preto</span><span class="s">Rua José Leal, 389 · Alto da Boa Vista</span></span>
+      <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
+    <li class="in" style="--d:.68s"><a class="link" href="../#duvidas">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 12h7"/><path d="M9 16h5"/></svg></span>
+      <span><span class="t">Dúvidas frequentes</span><span class="s">Medicação, tratamento, acompanhamento</span></span>
+      <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
+    <li class="in" style="--d:.74s"><a class="link" href="../">
+      <span class="ico"><img src="../assets/logo/simbolo-grafite.png" alt="" width="18" height="20" style="width:18px"></span>
+      <span><span class="t">Conheça o site</span><span class="s">Trajetória, abordagem e áreas de atuação</span></span>
+      <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
+  </ul>
+
+  <a class="feature in" style="--d:.82s" href="../#mitos">
+    <img src="../assets/bg/maos-mesa-pb.jpg" alt="" aria-hidden="true">
+    <span class="k">Mitos e verdades</span>
+    <span class="h">Nem toda tristeza é depressão</span>
+    <span class="p">Equívocos frequentes sobre psiquiatria e saúde mental, explicados com clareza.</span>
+    <span class="cta">Ler no site <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+
+  <footer class="foot in" style="--d:.9s">
+    <img src="../assets/logo/simbolo-grafite.png" alt="" width="30" height="33">
+    <p>Presencial em Ribeirão Preto/SP<br>On-line para todo o Brasil</p>
+  </footer>
+</main>
+
+<script>
+document.documentElement.classList.add('js');
+requestAnimationFrame(function () { requestAnimationFrame(function () { document.documentElement.classList.add('ready'); }); });
+</script>
+</body>
+</html>
