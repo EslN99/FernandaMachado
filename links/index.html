@@ -9,13 +9,13 @@
 <link rel="icon" type="image/png" href="../assets/logo/simbolo-grafite.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@400;500;600&family=Playfair+Display:ital@1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap">
 <style>
 /* Agregador de links · mesmos tokens do site, coluna única, mobile first */
 :root {
   --taupe-050:#f0ece8; --taupe-100:#e1dad1; --taupe-200:#d2c8ba; --taupe-300:#c3b6a3; --taupe-400:#b4a48c;
   --taupe-500:#908370; --taupe-600:#6c6254; --taupe-700:#474137; --taupe-800:#23201b; --branco:#fff;
-  --ink: var(--taupe-800); --ink-muted: var(--taupe-600); --accent: var(--taupe-500); --line: var(--taupe-200);
+  --ink: var(--taupe-800); --ink-muted: var(--taupe-700); --accent: var(--taupe-500); --line: var(--taupe-200);
   --font-display: "Italiana", Georgia, serif; --font-accent: "Playfair Display", Georgia, serif; --font-sans: "Montserrat", Arial, sans-serif;
   --ease: cubic-bezier(.22,.7,.2,1);
 }
@@ -76,7 +76,7 @@ a { color: inherit; text-decoration: none; }
 .ico { width: 44px; height: 44px; border: 1px solid var(--ink); display: grid; place-items: center; transition: background-color .3s, color .3s, transform .45s var(--ease); }
 .ico svg { width: 22px; height: 22px; }
 .link:hover .ico { background: var(--ink); color: var(--branco); transform: rotate(-4deg); }
-.t { font-family: var(--font-display); font-size: 21px; line-height: 25px; display: block; }
+.t { font-family: var(--font-accent); font-weight: 500; font-size: 17px; line-height: 23px; display: block; }
 .s { font-size: 12.5px; line-height: 18px; color: var(--ink-muted); display: block; margin-top: 2px; }
 .go { width: 18px; height: 18px; color: var(--accent); transition: transform .45s var(--ease); }
 .link:hover .go { transform: translate(3px, -3px); }
