@@ -146,7 +146,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; margin: 0; text
 .hero__list svg { width: 20px; height: 20px; color: var(--accent); flex: none; }
 .hero__media { position: relative; max-width: 420px; justify-self: center; width: 100%; }
 .hero__media .zoom { aspect-ratio: 4 / 5; }
-.hero__media .zoom img { object-position: 50% 20%; transform: scale(1.08); }
+.hero__media .zoom img { object-position: 50% 30%; transform: scale(1.08); }
 .is-loaded .hero__media .zoom img { transform: scale(1); transition: transform 2.2s var(--ease); }
 .hero__badge { position: absolute; left: -8px; bottom: 28px; background: var(--surface); padding: var(--space-3) var(--space-4); box-shadow: 0 18px 40px -22px rgba(35,32,27,.5); display: flex; align-items: center; gap: var(--space-3); max-width: 240px; }
 .hero__badge img { width: 28px; }
@@ -225,6 +225,12 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; margin: 0; text
 .value:hover .value__n { transform: scale(1.08) rotate(-4deg); }
 .value h3 { font-family: var(--font-sans); font-size: 16px; line-height: 22px; letter-spacing: .16em; text-transform: uppercase; font-weight: 500; }
 .value p { margin: var(--space-1) 0 0; font-size: 15px; line-height: 24px; }
+/* Valores em texto branco: o fundo vai para taupe-600 (branco 6:1), pois branco no taupe-400 daria só 2,4:1 */
+.section--values { background-color: var(--taupe-600); color: var(--branco); }
+.section--values h2, .section--values h3 { color: var(--branco); }
+.section--values .eyebrow { color: var(--taupe-100); }
+.section--values .value p { color: var(--taupe-050); }
+.section--values .value__n circle { stroke: var(--branco); }
 
 /* ===================== CONSULTÓRIO ===================== */
 .office__grid { display: grid; gap: var(--space-12); }
@@ -490,7 +496,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; margin: 0; text
     </div>
     <div class="hero__media" data-reveal="scale" style="--d:.2s">
       <div class="frame" data-frame><span class="frame-b"></span>
-        <div class="zoom" data-parallax="0.06"><img src="assets/img/fernanda-close-claro.jpg" alt="Dra. Fernanda Machado sorrindo, de blusa branca" width="933" height="1400" fetchpriority="high"></div>
+        <div class="zoom" data-parallax="0.06"><img src="assets/img/fernanda-escuro-tronco.jpg" alt="Dra. Fernanda Machado sorrindo, de blusa preta, sentada" width="1120" height="1400" fetchpriority="high"></div>
       </div>
       <div class="hero__badge" data-reveal="left" style="--d:1s">
         <img src="assets/logo/simbolo-grafite.png" alt="" width="28" height="31">
@@ -633,7 +639,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; margin: 0; text
 </section>
 
 <!-- VALORES -->
-<section class="section section--brand tex" id="valores">
+<section class="section section--brand section--values tex" id="valores">
   <img class="bg-photo bg-photo--side-r" src="assets/bg/maos-dadas.jpg" alt="" aria-hidden="true" loading="lazy" style="--o:.5" data-parallax="0.04">
   <div class="container">
     <div class="heading">
