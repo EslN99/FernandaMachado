@@ -51,6 +51,7 @@ body { margin: 0; font-family: var(--font-sans); font-size: 16px; line-height: 2
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; }
 p { margin: 0 0 var(--space-4); }
+p, li, blockquote, figcaption, .myth__q, .myth__a { text-wrap: pretty; }
 h1, h2, h3 { font-family: var(--font-display); font-weight: 400; margin: 0; text-wrap: balance; color: var(--ink); }
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -813,6 +814,20 @@ h1, h2, h3, .faq-q, .myth__q, .fact__n { -webkit-font-smoothing: auto; -moz-osx-
   var root = document.documentElement;
   root.classList.add('js');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Sem palavras viúvas: a última linha de cada texto nunca fica com uma palavra sozinha.
+  // Junta as duas últimas palavras com espaço que não quebra; text-wrap: pretty (CSS) refina onde o navegador suporta.
+  function noWidows(scope) {
+    scope.querySelectorAll('p, li, blockquote, figcaption, .myth__q, .myth__a, .t, .s').forEach(function (el) {
+      if (el.closest('[data-split]') || el.textContent.trim().split(/\s+/).length < 4) return;
+      var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), last = null;
+      while (walker.nextNode()) { if (walker.currentNode.nodeValue.trim()) last = walker.currentNode; }
+      if (!last) return;
+      var text = last.nodeValue.replace(/\s+$/, ''), tail = last.nodeValue.slice(text.length), i = text.lastIndexOf(' ');
+      if (i > 0) last.nodeValue = text.slice(0, i) + '\u00A0' + text.slice(i + 1) + tail;
+    });
+  }
+  noWidows(document);
 
   // Título da capa: revela palavra por palavra
   document.querySelectorAll('[data-split]').forEach(function (el) {
