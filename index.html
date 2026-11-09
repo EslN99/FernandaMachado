@@ -266,6 +266,17 @@ h1, h2, h3, .faq-q, .myth__q, .fact__n { -webkit-font-smoothing: auto; -moz-osx-
 .dot { width: 28px; height: 2px; background: var(--taupe-300); border: 0; padding: 0; cursor: pointer; position: relative; }
 .dot::after { content: ""; position: absolute; inset: -10px 0; }
 .dot.is-active { background: var(--ink); }
+.slides { transition: height .6s var(--ease); overflow: hidden; }
+.slide { align-self: start; margin: 0; }
+.slide--long blockquote { font-size: 17px; line-height: 28px; }
+.slide--long blockquote { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 10; overflow: hidden; }
+.slide--long.is-open blockquote { display: block; -webkit-line-clamp: unset; }
+.more { margin-top: var(--space-4); background: none; border: 0; padding: 0 0 2px; border-bottom: 1px solid currentColor; font: 500 12px/18px var(--font-sans); letter-spacing: .16em; text-transform: uppercase; color: var(--ink); cursor: pointer; }
+.slide:not(.slide--long) .more, .slide--long.is-open .more { display: none; }
+.stars { letter-spacing: .12em; color: var(--taupe-500); margin-right: 4px; }
+.dots { display: none; flex-wrap: wrap; justify-content: center; max-width: 360px; }
+.dot { width: 14px; }
+.slider__count { margin: 0; min-width: 64px; font-size: 12px; letter-spacing: .2em; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
 .rating { display: inline-flex; gap: var(--space-2); align-items: center; font-size: 13px; color: var(--ink-muted); margin-top: var(--space-6); }
 
 /* ===================== FAQ ===================== */
@@ -403,6 +414,10 @@ h1, h2, h3, .faq-q, .myth__q, .fact__n { -webkit-font-smoothing: auto; -moz-osx-
   .fab.is-visible:hover { transform: scale(1.1); background: var(--action-hover); }
   .fab svg { width: 24px; height: 24px; }
   .slide blockquote { font-size: 28px; line-height: 42px; }
+  .slide--long blockquote { font-size: 21px; line-height: 34px; display: block; -webkit-line-clamp: unset; }
+  .more { display: none; }
+  .dots { display: flex; }
+  .slider__count { display: none; }
 }
 
 /* ===================== DESKTOP ≥ 1080px ===================== */
@@ -697,13 +712,27 @@ h1, h2, h3, .faq-q, .myth__q, .fact__n { -webkit-font-smoothing: auto; -moz-osx-
     </div>
     <div class="slider" data-reveal="up" style="--d:.2s" aria-roledescription="carrossel" aria-label="Depoimentos">
       <div class="slides">
-        <figure class="slide is-active"><blockquote>"Exemplo de depoimento: me senti ouvida desde a primeira consulta e saí com orientações claras sobre o tratamento."</blockquote><figcaption>Paciente · iniciais<span>Avaliação do Google · a selecionar</span></figcaption></figure>
-        <figure class="slide"><blockquote>"Exemplo de depoimento: uma médica atenta aos detalhes, que explica cada decisão com calma e cuidado."</blockquote><figcaption>Paciente · iniciais<span>Avaliação do Google · a selecionar</span></figcaption></figure>
-        <figure class="slide"><blockquote>"Exemplo de depoimento: o acompanhamento regular fez diferença. Me sinto segura com a condução do tratamento."</blockquote><figcaption>Paciente · iniciais<span>Avaliação do Google · a selecionar</span></figcaption></figure>
+        <figure class="slide is-active slide--long"><blockquote>“A Dra. Fernanda é uma profissional extraordinária. Desde o início, me senti acolhida pela sua escuta atenta, empática e respeitosa. Ela transmite segurança em cada palavra, em cada silêncio, criando um espaço onde é possível falar e ser com verdade, sem medo de julgamento. Diferente do que muitas vezes se vê em atendimentos psiquiátricos, seu olhar vai muito além dos sintomas. Ela se interessa pela minha história, pelas emoções que estão por trás do que estou vivendo, e cuida da minha saúde mental de forma integral e sensível, respeitando todas as minhas singularidades e desafios. Sou profundamente grata por ter encontrado uma profissional tão humana. Seu cuidado faz toda a diferença no meu processo de cura.”</blockquote><button class="more" type="button">Ler depoimento completo</button><figcaption>Psicóloga Mariana Lanza Guarnieri<span><span class="stars" aria-label="5 estrelas">★★★★★</span> Avaliação no Google</span></figcaption></figure>
+        <figure class="slide slide--long"><blockquote>“Quando conheci a Dra. Fernanda, eu vivia um momento da minha vida sem clareza. Sempre tive receio de consultas com psiquiatras, porque muitas vezes o atendimento se resume a prescrever um medicamento e encerrar a conversa. Mas já na primeira consulta ela mudou totalmente a minha concepção. Ela não esperou que eu falasse tudo sozinha — até porque, às vezes, a gente nem sabe por onde começar. Foi ela quem conduziu a consulta, fez perguntas, buscou compreender minha realidade e trouxe reflexões importantes. Antes de qualquer tratamento, explicava detalhadamente como cada medicação funcionava, o que poderia trazer de bom, como eu poderia me sentir, e sempre respeitava meu tempo, em pequenas etapas e com meu consentimento. Indico de olhos fechados, porque além de todo o profissionalismo, ela marcou uma parte muito importante da minha trajetória de autoconhecimento.”</blockquote><button class="more" type="button">Ler depoimento completo</button><figcaption>Lorena Melo<span><span class="stars" aria-label="5 estrelas">★★★★★</span> Avaliação no Google</span></figcaption></figure>
+        <figure class="slide slide--long"><blockquote>“Uma psiquiatra excelente e muito humana. Conheci a dra Fernanda por indicação da minha antiga psicóloga, e logo no primeiro atendimento me encantei. Uma consulta com presença, história, conversa profunda sobre tudo. Entre idas e vindas, me apaixono cada vez mais pela forma dela de atender e sempre busco conhecer melhor a mim mesma pelo olhar dela. É uma indicação certa, que faço sempre quando alguém me pergunta se tenho uma psiquiatra pra indicar.”</blockquote><button class="more" type="button">Ler depoimento completo</button><figcaption>Sarah Almeida<span><span class="stars" aria-label="5 estrelas">★★★★★</span> Avaliação no Google</span></figcaption></figure>
+        <figure class="slide"><blockquote>“Dra. Fernanda me ajudou em um dos momentos mais difíceis da minha vida profissional, trouxe de volta alegria e sentido onde não encontrava mais saída! Profissional excelente, cuidadosa, dedicada, responsável e o mais importante, humana de uma forma inexplicável.”</blockquote><button class="more" type="button">Ler depoimento completo</button><figcaption>Maria Paula Kuiavski<span><span class="stars" aria-label="5 estrelas">★★★★★</span> Avaliação no Google</span></figcaption></figure>
+        <figure class="slide slide--long"><blockquote>“Uma psiquiatra excelente. As consultas são confortáveis e sem pressa. A Dra. Fernanda é super atenciosa e se dedica as particularidades de cada paciente de uma forma muito bonita. As consultas de acompanhamento também são sempre super consultas, nada de fazer as coisas rapidinho pra acabar logo, sempre com atenção aos detalhes nos oferecendo um acompanhamento saudável. Atende online e é queer safe. Super recomendo 👍”</blockquote><button class="more" type="button">Ler depoimento completo</button><figcaption>Luna Hellena<span><span class="stars" aria-label="5 estrelas">★★★★★</span> Avaliação no Google</span></figcaption></figure>
+        <figure class="slide slide--long"><blockquote>“A Dra Fernanda alem de ser uma excelente profissional, é muito ponderada, humanizada, atenciosa e acolhedora! Estou me sentindo muito melhor do que quando iniciei o acompanhamento, tinha receio em relação ao uso de medicamentos e não imaginava o quando minha vida poderia mudar para melhor! Indico a Dra de olhos fechados!”</blockquote><button class="more" type="button">Ler depoimento completo</button><figcaption>Nicoli Menta<span><span class="stars" aria-label="5 estrelas">★★★★★</span> Avaliação no Google</span></figcaption></figure>
+        <figure class="slide"><blockquote>“Conheci a Dr Fernanda ainda na pandemia. Tinha receio. Mas pensem em uma pessoa que te olha como um todo, que te ouve e conduz a consulta com uma leveza ímpar. Me senti extremamente acolhida e cuidada por ela. Recomendo demais”</blockquote><button class="more" type="button">Ler depoimento completo</button><figcaption>Michele Fincoti<span><span class="stars" aria-label="5 estrelas">★★★★★</span> Avaliação no Google</span></figcaption></figure>
+        <figure class="slide"><blockquote>“Dr Fernanda tem um acolhimento como poucos profissionais na área possuem. E olha que já passei por alguns profissionais. O método dela é incrível, e muito respeitoso. Tanto com nosso tempo de consulta, quanto com nossa vida. Escuta muito ativa!”</blockquote><button class="more" type="button">Ler depoimento completo</button><figcaption>Ananda E Oliveira<span><span class="stars" aria-label="5 estrelas">★★★★★</span> Avaliação no Google</span></figcaption></figure>
+        <figure class="slide"><blockquote>“Só tenho elogios a Dra Fernanda. Eu já me consultei com outros psiquiatras, mas o atendimento dela é fora da normalidade. É atendimento humanizado. Eu me senti acolhida e ouvida. Estava em um momento frágil e ela foi simplesmente incrível. Indico à todos.”</blockquote><button class="more" type="button">Ler depoimento completo</button><figcaption>Fê Gurgel<span><span class="stars" aria-label="5 estrelas">★★★★★</span> Avaliação no Google</span></figcaption></figure>
+        <figure class="slide slide--long"><blockquote>“Que prazer foi passar por um momento tão difícil me sentindo acompanhada, com um olhar sempre reconfortante e uma esperança presente nos detalhes. Acredito que é isso que diferencia e amplia o cuidado da Dra. Fernanda, sempre tão atenta, prestativa e humana. Cada encontro deixava no ar a sensação de um amanhã mais leve e caloroso. Desejo que todas as pessoas que buscam cuidado em saúde mental encontrem profissionais que saibam olhar, acolher e escutar antes de medicar. Ouvir com empatia ainda é o melhor caminho para qualquer tratamento!”</blockquote><button class="more" type="button">Ler depoimento completo</button><figcaption>Isabella Batista de Souza<span><span class="stars" aria-label="5 estrelas">★★★★★</span> Avaliação no Google</span></figcaption></figure>
+        <figure class="slide slide--long"><blockquote>“Desde a primeira consulta, a Dra. Fernanda demonstrou um cuidado e uma atenção que nunca vi em outro profissional. Ela não se limitou a ouvir apenas a queixa principal mas procurou entender sobre vários aspectos de vida. Quis realmente conhecer para propor um tratamento personalizado e eficaz. Sempre muito humana, atenciosa, prestativa e resolutiva. Me ouviu com empatia, esclareceu todas as minhas dúvidas e me acolheu de forma única. Uma profissional excepcional e uma pessoa querida!”</blockquote><button class="more" type="button">Ler depoimento completo</button><figcaption>Letícia Nakamura<span><span class="stars" aria-label="5 estrelas">★★★★★</span> Avaliação no Google</span></figcaption></figure>
+        <figure class="slide"><blockquote>“Essa já é a segunda consulta com a Dr Fernanda, moro na Europa , então nossas consultas são por videochamada, mas não dá pra sentir diferença nenhuma , Dr Fernanda deixa tudo mais leve , é muito cuidadosa ; atenciosa , simpática e muito empenhada em ajudar !”</blockquote><button class="more" type="button">Ler depoimento completo</button><figcaption>Polyara Silva<span><span class="stars" aria-label="5 estrelas">★★★★★</span> Avaliação no Google</span></figcaption></figure>
+        <figure class="slide"><blockquote>“Sempre atenciosa, dedicada e preocupada. Gosto muito da consulta. Longa, atenta, com ajustes no tratamento se necessário. Obrigado!”</blockquote><button class="more" type="button">Ler depoimento completo</button><figcaption>Denis Vitor<span><span class="stars" aria-label="5 estrelas">★★★★★</span> Avaliação no Google</span></figcaption></figure>
+        <figure class="slide"><blockquote>“Já fui paciente da Fernanda e indico ela para todos que conheço! Uma profissional com atendimento humanizado, coerente e com muita bagagem em suas orientações. Sou e serei eternamente grata por ter tido a oportunidade de conhecê-la num momento que foi tão delicado para mim.”</blockquote><button class="more" type="button">Ler depoimento completo</button><figcaption>Mayumi Molina<span><span class="stars" aria-label="5 estrelas">★★★★★</span> Avaliação no Google</span></figcaption></figure>
+        <figure class="slide"><blockquote>“Dra Fernanda é uma profissional ética, atenciosa e com escuta qualificada. O atendimento é conduzido com clareza, sensibilidade e profundo respeito à individualidade do paciente. Destaca-se pela abordagem humanizada, aliando conhecimento técnico atualizado a uma postura acolhedora.”</blockquote><button class="more" type="button">Ler depoimento completo</button><figcaption>Amanda Coletto<span><span class="stars" aria-label="5 estrelas">★★★★★</span> Avaliação no Google</span></figcaption></figure>
+        <figure class="slide"><blockquote>“Melhor profissional! Dra. Fernanda é extremamente atenciosa e cuidadosa. A procurei em um momento muito difícil e posso dizer que desde que iniciamos o tratamento minha qualidade de vida mudou totalmente para a melhor!”</blockquote><button class="more" type="button">Ler depoimento completo</button><figcaption>Mel Valvano<span><span class="stars" aria-label="5 estrelas">★★★★★</span> Avaliação no Google</span></figcaption></figure>
+        <figure class="slide"><blockquote>“Profissional extremamente empática, atenciosa e que se preocupa com todos os âmbitos da vida do paciente. Não troco por nada ❤️”</blockquote><button class="more" type="button">Ler depoimento completo</button><figcaption>Marcela Baldoni<span><span class="stars" aria-label="5 estrelas">★★★★★</span> Avaliação no Google</span></figcaption></figure>
       </div>
       <div class="slider__ctrl">
         <button class="slider__btn" type="button" data-prev aria-label="Depoimento anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-        <div class="dots" role="tablist"></div>
+        <div class="dots" role="tablist"></div><p class="slider__count" aria-live="polite"><span data-cur>1</span> / 17</p>
         <button class="slider__btn" type="button" data-next aria-label="Próximo depoimento"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
       </div>
     </div>
@@ -954,12 +983,40 @@ h1, h2, h3, .faq-q, .myth__q, .fact__n { -webkit-font-smoothing: auto; -moz-osx-
     cur = (i + slides.length) % slides.length;
     slides.forEach(function (s, k) { s.classList.toggle('is-active', k === cur); });
     Array.prototype.forEach.call(dots, function (d, k) { d.classList.toggle('is-active', k === cur); });
+    if (counter) counter.textContent = cur + 1;
+    fit();
     restart();
   }
-  function restart() { clearInterval(timer); if (!reduce) timer = setInterval(function () { go(cur + 1); }, 7000); }
+  var track = document.querySelector('.slides'), counter = document.querySelector('[data-cur]'), paused = false, visible = false;
+  function fit() { track.style.height = slides[cur].offsetHeight + 'px'; }
+  function restart() {
+    clearTimeout(timer);
+    // só avança sozinho com o carrossel na tela: a altura muda a cada depoimento e não pode empurrar o resto da página
+    if (reduce || paused || !visible) return;
+    // tempo de leitura proporcional ao tamanho do depoimento (mín. 7s)
+    var ms = Math.max(7000, slides[cur].textContent.length * 55);
+    timer = setTimeout(function () { go(cur + 1); }, ms);
+  }
+  var slider = document.querySelector('.slider');
+  slider.addEventListener('mouseenter', function () { paused = true; clearTimeout(timer); });
+  slider.addEventListener('mouseleave', function () { paused = false; restart(); });
+  slider.addEventListener('focusin', function () { paused = true; clearTimeout(timer); });
+  slider.addEventListener('focusout', function () { paused = false; restart(); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      visible = entries[0].isIntersecting;
+      if (visible) restart(); else clearTimeout(timer);
+    }, { threshold: 0.5 }).observe(slider);
+  }
+  document.querySelectorAll('.more').forEach(function (b) {
+    b.addEventListener('click', function () { b.closest('.slide').classList.add('is-open'); paused = true; clearTimeout(timer); fit(); });
+  });
+  window.addEventListener('resize', fit);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  fit();
   document.querySelector('[data-prev]').addEventListener('click', function () { go(cur - 1); });
   document.querySelector('[data-next]').addEventListener('click', function () { go(cur + 1); });
-  var sx = 0, track = document.querySelector('.slides');
+  var sx = 0;
   track.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
   track.addEventListener('touchend', function (e) { var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) go(cur + (dx < 0 ? 1 : -1)); });
   restart();
