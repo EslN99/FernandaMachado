@@ -755,7 +755,7 @@ h1, h2, h3, .faq-q, .myth__q, .fact__n { -webkit-font-smoothing: auto; -moz-osx-
   </div>
 </section>
 
-<!-- VÍDEO: cole o link do YouTube (Shorts, watch, youtu.be ou o código embed) em data-youtube -->
+<!-- VÍDEO: player do YouTube incorporado (Shorts LqFiHCA_MkM). Para trocar, mude o código depois de /embed/ -->
 <section class="section section--dark video-sec" id="video">
   <div class="container video__grid">
     <div class="video__text">
@@ -774,13 +774,8 @@ h1, h2, h3, .faq-q, .myth__q, .fact__n { -webkit-font-smoothing: auto; -moz-osx-
     </div>
     <div class="video__media" data-reveal="clip" style="--d:.15s">
       <div class="frame frame--light" data-frame><span class="frame-b"></span>
-        <div class="video" data-youtube="">
-          <button class="video__cover" type="button" aria-label="Assistir ao vídeo: a Dra. Fernanda apresenta o consultório">
-            <img src="assets/img/video-capa-consultorio.jpg" alt="Dra. Fernanda Machado na porta do consultório, convidando a entrar" width="900" height="1600" loading="lazy">
-            <span class="video__shade"></span>
-            <span class="video__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>
-            <span class="video__caption"><span class="video__k">Vídeo</span><span class="video__t">A Dra. Fernanda apresenta o consultório</span></span>
-          </button>
+        <div class="video video--embed">
+          <iframe src="https://www.youtube-nocookie.com/embed/LqFiHCA_MkM?rel=0&amp;playsinline=1&amp;modestbranding=1" title="Dra. Fernanda Machado apresenta o consultório" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -1059,7 +1054,7 @@ h1, h2, h3, .faq-q, .myth__q, .fact__n { -webkit-font-smoothing: auto; -moz-osx-
 
 
   // Vídeo: a capa é leve; o player do YouTube só é criado no clique
-  document.querySelectorAll('.video').forEach(function (v) {
+  document.querySelectorAll('.video:not(.video--embed)').forEach(function (v) {
     var url = (v.dataset.youtube || '').trim();
     var m = url.match(/(?:shorts\/|embed\/|[?&]v=|youtu\.be\/)([\w-]{11})/) || (/^[\w-]{11}$/.test(url) ? [0, url] : null);
     var cover = v.querySelector('.video__cover');
