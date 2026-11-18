@@ -247,8 +247,9 @@ h1, h2, h3, .faq-q, .myth__q, .fact__n { -webkit-font-smoothing: auto; -moz-osx-
 
 /* ===================== CONSULTÓRIO ===================== */
 .office__grid { display: grid; gap: var(--space-12); }
-.mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
-.mosaic .zoom { aspect-ratio: 4 / 5; }
+.mosaic { columns: 2; column-gap: var(--space-3); }
+.mosaic .zoom { break-inside: avoid; margin-bottom: var(--space-3); }
+.mosaic .zoom img { height: auto; }
 .ph { display: grid; place-items: center; text-align: center; color: var(--ink-muted); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; background: repeating-linear-gradient(135deg, var(--taupe-100) 0 14px, var(--taupe-050) 14px 28px); }
 .ph img { width: 30px; height: auto; object-fit: contain; margin: 0 auto var(--space-2); opacity: .7; transition: transform .6s var(--ease); }
 .ph:hover img { transform: scale(1.15); }
@@ -444,7 +445,7 @@ h1, h2, h3, .faq-q, .myth__q, .fact__n { -webkit-font-smoothing: auto; -moz-osx-
   .fact:last-child { border-right: 0; }
   .areas, .myths { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: 1fr 1fr; column-gap: var(--space-12); }
-  .mosaic { grid-template-columns: repeat(3, 1fr); }
+  .mosaic { columns: 3; }
   .insta { grid-template-columns: repeat(3, 1fr); }
   .insta a:nth-child(n+5) { display: block; }
   .footer__grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
@@ -494,9 +495,6 @@ h1, h2, h3, .faq-q, .myth__q, .fact__n { -webkit-font-smoothing: auto; -moz-osx-
   .value:nth-child(2) { margin-top: var(--space-16); }
   .value:nth-child(3) { margin-top: var(--space-32); }
   .office__grid { grid-template-columns: 7fr 5fr; gap: var(--space-16); align-items: start; }
-  .office__grid { align-items: stretch; }
-  .mosaic { gap: var(--space-4); height: 100%; grid-template-rows: 1fr 1fr; }
-  .mosaic .zoom { aspect-ratio: auto; min-height: 0; }
   .faq__grid { grid-template-columns: 4fr 8fr; gap: var(--space-16); }
   .faq__grid .heading { position: sticky; top: calc(var(--header-h) + var(--space-8)); align-self: start; }
   .contact__grid { grid-template-columns: 7fr 5fr; gap: var(--space-16); }
@@ -730,12 +728,15 @@ h1, h2, h3, .faq-q, .myth__q, .fact__n { -webkit-font-smoothing: auto; -moz-osx-
 <section class="section" id="consultorio">
   <div class="container office__grid">
     <div class="mosaic">
-      <div class="zoom" data-reveal="clip"><img src="assets/img/fernanda-sentada-sofa-claro.jpg" alt="Dra. Fernanda sentada em um sofá branco" width="933" height="1400" loading="lazy" style="object-position:50% 30%"></div>
-      <div class="zoom" data-reveal="clip" style="--d:0.08s"><img src="assets/img/consultorio-corredor-entrada.jpg" alt="Corredor do consultório com plantas e quadros, com a Dra. Fernanda caminhando" width="619" height="1100" loading="lazy" style="object-position:50% 62%"></div>
-      <div class="zoom" data-reveal="clip" style="--d:0.16s"><img src="assets/img/consultorio-recepcao.jpg" alt="Recepção do consultório com poltronas de couro, cestos de palha na parede e plantas" width="760" height="950" loading="lazy" style="object-position:50% 60%"></div>
-      <div class="zoom" data-reveal="clip" style="--d:0.24s"><img src="assets/img/consultorio-livros.jpg" alt="Livros de psiquiatria e um bordado de girassóis na estante do consultório" width="619" height="1100" loading="lazy" style="object-position:50% 58%"></div>
-      <div class="zoom" data-reveal="clip" style="--d:0.32s"><img src="assets/img/consultorio-bancada-vela.jpg" alt="Detalhe da bancada do consultório com vela acesa, flores e potes de vidro" width="619" height="1100" loading="lazy" style="object-position:40% 55%"></div>
-      <div class="zoom" data-reveal="clip" style="--d:0.40s"><img src="assets/img/consultorio-corredor-costas.jpg" alt="Dra. Fernanda caminhando pelo corredor do consultório" width="619" height="1100" loading="lazy" style="object-position:50% 55%"></div>
+      <div class="zoom" data-reveal="clip"><img src="assets/img/consultorio-sala.jpg" alt="Sala de atendimento com mesa de vidro, cadeiras e janela para o jardim" width="1200" height="1600" loading="lazy"></div>
+      <div class="zoom" data-reveal="clip" style="--d:0.06s"><img src="assets/img/consultorio-corredor-entrada.jpg" alt="Corredor do consultório com plantas e quadros, com a Dra. Fernanda caminhando" width="619" height="1100" loading="lazy"></div>
+      <div class="zoom" data-reveal="clip" style="--d:0.12s"><img src="assets/img/consultorio-mesa.jpg" alt="Mesa com rosas brancas e difusor, estante iluminada ao fundo" width="1200" height="1600" loading="lazy"></div>
+      <div class="zoom" data-reveal="clip" style="--d:0.18s"><img src="assets/img/consultorio-recepcao.jpg" alt="Recepção do consultório com poltronas de couro, cestos de palha na parede e plantas" width="760" height="950" loading="lazy"></div>
+      <div class="zoom" data-reveal="clip" style="--d:0.24s"><img src="assets/img/fernanda-sentada-sofa-claro.jpg" alt="Dra. Fernanda sentada em um sofá branco" width="933" height="1400" loading="lazy"></div>
+      <div class="zoom" data-reveal="clip" style="--d:0.30s"><img src="assets/img/consultorio-bancada-vela.jpg" alt="Detalhe da bancada do consultório com vela acesa, flores e potes de vidro" width="619" height="1100" loading="lazy"></div>
+      <div class="zoom" data-reveal="clip" style="--d:0.36s"><img src="assets/img/consultorio-livros.jpg" alt="Livros de psiquiatria sob um quadro bordado de girassóis" width="1200" height="1600" loading="lazy"></div>
+      <div class="zoom" data-reveal="clip" style="--d:0.42s"><img src="assets/img/consultorio-fachada.jpg" alt="Fachada do consultório em Ribeirão Preto" width="1600" height="1068" loading="lazy"></div>
+      <div class="zoom" data-reveal="clip" style="--d:0.48s"><img src="assets/img/consultorio-corredor-costas.jpg" alt="Dra. Fernanda caminhando pelo corredor do consultório" width="619" height="1100" loading="lazy"></div>
     </div>
     <div>
       <p class="eyebrow" data-reveal="up">Consultório</p>
