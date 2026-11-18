@@ -255,6 +255,8 @@ h1, h2, h3, .faq-q, .myth__q, .fact__n { -webkit-font-smoothing: auto; -moz-osx-
 .mosaic .zoom img { width: auto; height: 100%; }
 /* o efeito de recorte não pinta dentro da faixa com rolagem lateral */
 @media (max-width: 767px) { .js .mosaic .zoom[data-reveal="clip"] > * { clip-path: none; transition: none; } }
+/* celular: a fachada abre a faixa */
+@media (max-width: 767px) { .mosaic__lead { order: -1; } }
 .ph { display: grid; place-items: center; text-align: center; color: var(--ink-muted); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; background: repeating-linear-gradient(135deg, var(--taupe-100) 0 14px, var(--taupe-050) 14px 28px); }
 .ph img { width: 30px; height: auto; object-fit: contain; margin: 0 auto var(--space-2); opacity: .7; transition: transform .6s var(--ease); }
 .ph:hover img { transform: scale(1.15); }
@@ -744,7 +746,7 @@ h1, h2, h3, .faq-q, .myth__q, .fact__n { -webkit-font-smoothing: auto; -moz-osx-
       </div>
       <div class="mosaic__col">
         <div class="zoom" data-reveal="clip" style="--d:0.06s"><img src="assets/img/consultorio-corredor-entrada.jpg" alt="Corredor do consultório com plantas e quadros, com a Dra. Fernanda caminhando" width="619" height="1100" loading="lazy"></div>
-        <div class="zoom" data-reveal="clip" style="--d:0.24s"><img src="assets/img/consultorio-fachada.jpg" alt="Fachada do consultório em Ribeirão Preto" width="1600" height="1068" loading="lazy"></div>
+        <div class="zoom mosaic__lead" data-reveal="clip" style="--d:0.24s"><img src="assets/img/consultorio-fachada.jpg" alt="Fachada do consultório em Ribeirão Preto" width="1600" height="1068" loading="lazy"></div>
         <div class="zoom" data-reveal="clip" style="--d:0.42s"><img src="assets/img/consultorio-corredor-costas.jpg" alt="Dra. Fernanda caminhando pelo corredor do consultório" width="619" height="1100" loading="lazy"></div>
       </div>
       <div class="mosaic__col">
